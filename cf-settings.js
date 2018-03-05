@@ -44,7 +44,7 @@ var settings = module.exports = {
     nodesDir: path.join(__dirname,"nodes"),
 
     // Blacklist the non-bluemix friendly nodes
-    nodesExcludes:['66-mongodb.js','75-exec.js','35-arduino.js','36-rpi-gpio.js','25-serial.js','28-tail.js','50-file.js','31-tcpin.js','32-udp.js','23-watch.js'],
+    // nodesExcludes:['66-mongodb.js','75-exec.js','35-arduino.js','36-rpi-gpio.js','25-serial.js','28-tail.js','50-file.js','31-tcpin.js','32-udp.js','23-watch.js'],
 
     // Enable module reinstalls on start-up; this ensures modules installed
     // post-deploy are restored after a restage
@@ -80,19 +80,19 @@ var settings = module.exports = {
 };
 
 // Look for the attached Cloudant instance to use for storage
-settings.couchAppname = appEnv.name;
+//settings.couchAppname = appEnv.name;
 // NODE_RED_STORAGE_NAME is automatically set by this applications manifest.
-var storageServiceName = process.env.NODE_RED_STORAGE_NAME || new RegExp("^"+settings.couchAppname+".cloudantNoSQLDB");
-var couchService = appEnv.getService(storageServiceName);
+//var storageServiceName = process.env.NODE_RED_STORAGE_NAME || new RegExp("^"+settings.couchAppname+".cloudantNoSQLDB");
+//var couchService = appEnv.getService(storageServiceName);
 
-if (!couchService) {
-    util.log("Failed to find Cloudant service: "+storageServiceName);
-    if (process.env.NODE_RED_STORAGE_NAME) {
-        util.log(" - using NODE_RED_STORAGE_NAME environment variable: "+process.env.NODE_RED_STORAGE_NAME);
-    }
-    //fall back to localfilesystem storage
-} else {
-    util.log("Using Cloudant service: "+storageServiceName+" : "+settings.couchAppname);
-    settings.storageModule = require("./couchstorage");
-    settings.couchUrl = couchService.credentials.url;
-}
+//if (!couchService) {
+//    util.log("Failed to find Cloudant service: "+storageServiceName);
+//    if (process.env.NODE_RED_STORAGE_NAME) {
+//        util.log(" - using NODE_RED_STORAGE_NAME environment variable: "+process.env.NODE_RED_STORAGE_NAME);
+//    }
+//    //fall back to localfilesystem storage
+//} else {
+//    util.log("Using Cloudant service: "+storageServiceName+" : "+settings.couchAppname);
+//    settings.storageModule = require("./couchstorage");
+//    settings.couchUrl = couchService.credentials.url;
+//}
