@@ -1,5 +1,5 @@
 {
-    "name"         : "node-red-bluemix-starter",
+    "name"         : "node-red-cf-starter",
     "version"      : "0.8.0",
     "dependencies": {
         "appmetrics-dash": "^3.2.1",
@@ -10,16 +10,10 @@
         "express":"4.x",
         "body-parser":"1.x",
         "http-shutdown":"1.2.0",
-        "node-red": "0.x",
-        "node-red-bluemix-nodes":"1.x",
-        "node-red-node-watson":"0.x",
-        "node-red-node-openwhisk":"0.x",
-        "node-red-node-cf-cloudant":"0.x",
-        "node-red-contrib-scx-ibmiotapp":"0.x",
-        "node-red-nodes-cf-sqldb-dashdb":"0.x"
+        "node-red": "0.x"
     },
     "scripts": {
-        "start": "node --max-old-space-size=384 index.js --settings ./bluemix-settings.js -v"
+        "start": "node --max-old-space-size=384 index.js --settings ./cf-settings.js -v"
     },
     "engines": {
         "node": "6.x"
